@@ -1,12 +1,404 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>F Stott Healthcare Ltd</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F Stott Healthcare Ltd</title>
+
+  <style>
+    :root {
+    --bg: #55a37b;        /* Logo background */
+    --card: #FFFFFF;      /* White cards */
+    --text: #03301a;      /* Dark greenish-black for main text */
+    --muted: #859ca0;     /* Medium sage for muted text */
+    --accent: #1f8f58;    /* Medium green for links/buttons */
+    --border: #D1D9D3;    /* Light sage border */
+    }
+
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    }
+
+    .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    margin: auto;
+    gap: 2rem;
+    background-color: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    }
+
+    .logo {
+    height: 60px;
+    width: auto;
+    border-radius: 8px;
+    }
+
+    .header-left h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    }
+
+    .header-right {
+    text-align: right;
+    font-size: 0.95rem;
+    color: var(--muted);
+    }
+
+    .header-right a {
+    color: var(--accent);
+    text-decoration: none;
+    }
+
+    .header-right a:hover {
+    text-decoration: underline;
+    }
+
+    main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem 1.5rem 4rem;
+    }
+
+    .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+    }
+
+    .tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .tile h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    }
+
+    .tile p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    }
+
+    .tile a {
+    align-self: flex-start;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    }
+
+    .tile a:hover {
+    text-decoration: underline;
+    }
+
+    .about {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    }
+
+    .about p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    }
+
+    .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    display: none;  /* hidden by default */
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+    }
+
+    .modal-content {
+    background: white;
+    max-width: 700px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2rem;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .modal-content h2 {
+    margin-bottom: 1rem;
+    }
+
+    .modal-content p {
+    margin-bottom: 1rem;
+    color: var(--muted);
+    }
+
+    .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    }
+
+    footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 4rem;
+    }
+
+    .contact {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 3rem 1.5rem;
+    margin-top: 4rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .contact h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    }
+
+    .contact-details {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+    color: var(--muted);
+    font-size: 1rem;
+    }
+
+    .contact-details strong {
+    color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-right {
+        text-align: left;
+        margin-top: 1rem;
+    }
+    }
+  </style>
 </head>
+
+
 <body>
-    <h1>Welcome to F Stott Healthcare Ltd</h1>
-    <p>Your trusted partner in healthcare solutions.</p>    
+
+    <header class="site-header">
+    <div class="header-left">
+        <img src="images/logo.jpg" alt="F Stott Healthcare Ltd logo" class="logo" />
+        <h1>F Stott Healthcare Ltd</h1>
+    </div>
+
+    <div class="header-right">
+        <p>31 Wellington Road, Nantwich, CW5 7ED</p>
+        <p>
+        <a href="mailto:info@fstott.co.uk">info@fstott.co.uk</a> |
+        <a href="tel:01270528555">01270 528555</a>
+        </p>
+        <p>Mon–Fri 9am–5pm</p>
+    </div>
+    </header>
+
+  <main>
+
+    <section class="services">
+
+
+    <div class="tile">
+        <div>
+            <h2>Offender Health</h2>
+            <p>
+            Delivering high-quality healthcare services to offenders,
+            comparable to care provided in the community.
+            </p>
+        </div>
+        <a href="#" onclick="openModal('offenderModal')">Read more</a>
+    </div>
+
+    <div class="tile">
+        <div>
+            <h2>Domiciliary Care</h2>
+            <p>
+            Delivering high-quality healthcare services to offenders,
+            comparable to care provided in the community.
+            </p>
+        </div>
+        <a href="#" onclick="openModal('domiciliaryModal')">Read more</a>
+    </div>
+
+    <div class="tile">
+        <div>
+          <h2>Diabetic Care</h2>
+          <p>
+            Specialised diabetic care including monitoring, education,
+            and long-term management tailored to individual needs.
+          </p>
+        </div>
+        <a href="#" onclick="openModal('diabeticModal')">Read more</a>
+    </div>
+
+    </section>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        <b> Fionnuala Stott BSc(Hons) MCOptom</b><br />
+        Based in South Cheshire, F Stott Healthcare Ltd provides high-quality healthcare services with a focus on offender health, domiciliary care, and diabetic care.
+        Chair of Cheshire Local Optical Committee.
+      </p>
+    </section>
+
+ 
+  </main>
+
+
+    <div class="modal" id="offenderModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('offenderModal')">&times;</button>
+
+            <h2>Offender Health</h2>
+
+            <p>
+            At F Stott Healthcare we are committed to delivering a healthcare
+            service comparable to a standard of care delivered within the
+            community to offenders.
+            </p>
+
+            <p>
+            In the prisons we work collaboratively with all the healthcare
+            team to provide prisoners a safe environment to access the help
+            and advice they require from a professional service.
+            </p>
+
+            <p>
+            Many people within the justice system experience greater problems
+            than the rest of the population but do not regularly access timely
+            healthcare. A priority in services for this group of patients is
+            improving continuity of care.
+            </p>
+
+            <p>
+            Children and young people in contact with the Youth Justice System
+            often have complex unmet health needs due to lack of screening.
+            </p>
+
+            <p>
+            Prisons can provide an opportunity to address serious health
+            inequalities and break cycles of disadvantage.
+            </p>
+        </div>
+    </div> 
+
+    <div class="modal" id="domiciliaryModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('domiciliaryModal')">&times;</button>
+
+          <h2>Domiciliary Care</h2>
+            <p>
+            The domiciliary eye examination is available for patients who are unable to attend a practice unaccompanied due to physical or mental disability.
+            </p>
+            <p>
+            Domiciliary eye care simply means eye care at home. If you cannot get to a High Street optician on your own, F Stott Healthcare can come visit you in the comfort of your own home. We have specialist equipment to enable us to provide an accurate sight test in your home.
+            </p>
+            <p>
+            A sight test checks whether you need glasses or contact lenses to help you see better. Having the right glasses or contact lenses can often increase your independence and improve your well-being, and can even help prevent falls. But a sight test is also an important eye-health check, and can sometimes detect signs of underlying general health conditions, such as diabetes, high cholesterol and high blood pressure.
+            </p>
+            <p>     
+            Everyone should have a sight test every two years, or more often if your optometrist recommends it.
+            </p>
+        </div>
+      </div>
+
+    <div class="modal" id="diabeticModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('diabeticModal')">&times;</button>
+
+          <h2>Diabetic Care</h2>
+            <p>
+            At F Stott Healthcare we provide specialised diabetic care including monitoring, education, and long-term management tailored to individual needs.
+            </p>
+            <p>
+            Our services include regular blood glucose monitoring, dietary advice, medication management, and support for lifestyle changes to help manage diabetes effectively.
+            </p>
+            <p>
+            We work closely with patients to develop personalised care plans that address their unique challenges and goals in managing diabetes.
+            </p>
+            <p>
+            Our team is dedicated to providing compassionate and comprehensive care to improve the quality of life for individuals living with diabetes.
+            </p>
+        </div>          
+
+    <footer>
+        © 2026 F Stott Healthcare Ltd
+    </footer>
+
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
+
+
 </body>
 </html>
+
