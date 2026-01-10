@@ -18,11 +18,25 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* at least full screen */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  margin: 0;
   padding-top: 2rem;
+}
+/* ==========================
+   SHARED WIDTH CONTAINER
+   ========================== */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 /* ==========================
@@ -33,10 +47,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1.5rem;
+  gap: 2rem;
+
   max-width: 1200px;
   margin: auto;
-  gap: 2rem;
+  padding: 2rem 1.5rem;
+
   background-color: var(--card);
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -99,11 +115,11 @@ body {
    ========================== */
 
 main {
+  flex: 1;
   max-width: 1200px;
   margin: auto;
-  padding: 3rem 1.5rem 4rem;
+padding: 3rem 1.5rem 4rem;
 }
-
 /* ==========================
    SERVICE TILES
    ========================== */
@@ -120,9 +136,11 @@ main {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 2rem;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -157,13 +175,13 @@ main {
    ========================== */
 
 .about {
+  max-width: 1200px;
+  margin: 4rem auto 0;
+  padding: 3rem 1.5rem;
+
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 3rem 2rem;
-  max-width: 900px;
-  margin: auto;
-  text-align: left;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
@@ -202,28 +220,20 @@ main {
   border-radius: 12px;
   position: relative;
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  text-align: left;
 }
 
-/* Headings only dark */
 .modal-content h1,
 .modal-content h2 {
   color: var(--text);
   font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  border: none;
-  text-decoration: none;
 }
 
-/* Body text muted */
 .modal-content p {
   color: var(--muted);
   margin-bottom: 1rem;
-  line-height: 1.6;
 }
-
-
 
 .close-btn {
   position: absolute;
@@ -240,10 +250,12 @@ main {
    ========================== */
 
 .contact {
-  background: var(--card);
-  border-top: 1px solid var(--border);
+  max-width: 1200px;
+  margin: 4rem auto 0;
   padding: 3rem 1.5rem;
-  margin-top: 4rem;
+
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -255,8 +267,6 @@ main {
 }
 
 .contact-details {
-  max-width: 900px;
-  margin: auto;
   display: grid;
   gap: 1rem;
   color: var(--muted);
@@ -267,7 +277,7 @@ main {
   color: var(--text);
 }
 
-/* Contact form alignment */
+/* Contact form */
 .contact-form {
   max-width: 600px;
   margin: 2rem auto 0;
@@ -279,7 +289,6 @@ main {
   display: flex;
   flex-direction: column;
   font-weight: 600;
-  color: var(--text);
 }
 
 .contact-form input,
@@ -320,7 +329,34 @@ footer {
   padding: 2rem 1.5rem;
   font-size: 0.9rem;
   color: var(--muted);
-  margin-top: 4rem;
+  margin-top: 4rem; 
+}
+/* ==========================
+   FOOTER LINKS
+   ========================== */
+
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logos img {
+  height: 50px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-logos img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.home-only {
+  display: flex; /* ensure it’s visible */
 }
 
 /* ==========================
@@ -339,27 +375,29 @@ footer {
   }
 }
 
-
+/* ==========================
+   MODAL LIST STYLING
+   ========================== */
 
 .modal-content ul {
-  list-style: none !important;
-  margin: 0 0 1.25rem 0 !important;
-  padding: 0 !important;
+  list-style: none;
+  margin-bottom: 1.25rem;
+  padding: 0;
 }
 
 .modal-content li {
-  position: relative !important;
-  padding-left: 1.5rem !important;
-  margin-bottom: 0.5rem !important;
-  color: var(--muted) !important;
-  line-height: 1.6 !important;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-/* Custom bullet INSIDE text flow */
 .modal-content li::before {
-  content: "•" !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  color: var(--muted) !important;
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--muted);
 }
+
