@@ -77,17 +77,17 @@ body {
   background-color: var(--card);
   border-radius: 12px;
 }
-
-/* Make header elements stack vertically on mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .site-header {
-    flex-direction: column;
+    flex-direction: column;       /* stack left and right sections */
+    align-items: center;          /* center content */
     text-align: center;
+    padding: 10px;
   }
 
   .header-left,
   .header-right {
-    width: 100%;
+    width: 100%;                  /* full width */
     margin-bottom: 10px;
   }
 
@@ -96,13 +96,21 @@ body {
   }
 
   .main-nav a {
-    display: block;
+    display: block;               /* stack nav links vertically */
     margin: 5px 0;
+    font-size: 16px;              /* bigger for touch */
   }
 
   .logo {
-    max-width: 150px;
+    max-width: 120px;             /* scale logo for small screens */
     height: auto;
+    margin-bottom: 5px;
+  }
+
+  .header-right p,
+  .header-right a {
+    font-size: 14px;              /* smaller but readable */
+    line-height: 1.4;
   }
 }
 
