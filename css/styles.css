@@ -80,7 +80,7 @@ body {
 
 @media screen and (max-width: 480px) {
   .site-header {
-    flex-direction: column !important;  /* stack left & right */
+    flex-direction: column !important;  
     align-items: center;
     text-align: center;
     padding: 5px 10px;
@@ -88,8 +88,7 @@ body {
   }
 
   .header-left {
-    width: 100% !important;            /* full width */
-    /* margin-bottom: 10px; */
+    width: 100% !important;            
     display: flex;
     flex-direction: column !important;
     align-items: center;
@@ -99,16 +98,14 @@ body {
   .logo {
     max-width: 100px;
     height: auto;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   
   .header-left h1 {
     font-size: 20px; 
-    /* line-height: 1.2; */
     margin: 0 0 6px 8px;
   }
 
-  /* Stack navigation links */
   .main-nav{
     order: 10;
     width: 100%;
@@ -117,8 +114,6 @@ body {
     gap: 16px;
     padding: 8px 0;
     margin: 6px 0 8px;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
     font-size: 15px;
   }
 
@@ -129,15 +124,13 @@ body {
   }
 
   .header-right {
-    width: 100%;            /* full width */
+    width: 100%;            
     margin-top: 6px;
   }
 
-  /* Shrink address & contact info */
   .header-right p,
   .header-right a {
     font-size: 12px;
-    /* line-height: 1.4; */
     margin: 2px 0;
     word-break: break-word;
   }
