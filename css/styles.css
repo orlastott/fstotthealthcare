@@ -111,6 +111,7 @@ body {
 
   /* Stack navigation links */
   .main-nav{
+    order: 10;
     width: 100%;
     display: flex;
     justify-content: center;
