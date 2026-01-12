@@ -77,40 +77,45 @@ body {
   background-color: var(--card);
   border-radius: 12px;
 }
+
 @media screen and (max-width: 480px) {
   .site-header {
     flex-direction: column;       /* stack left and right sections */
-    align-items: center;          /* center content */
+    align-items: center;
     text-align: center;
-    padding: 10px;
+    padding: 5px 10px;            /* smaller padding for small screens */
   }
 
   .header-left,
   .header-right {
-    width: 100%;                  /* full width */
-    margin-bottom: 10px;
+    width: 100%;
+    margin-bottom: 8px;           /* space between stacked sections */
   }
 
-  .main-nav {
-    margin-top: 10px;
-  }
-
-  .main-nav a {
-    display: block;               /* stack nav links vertically */
-    margin: 5px 0;
-    font-size: 16px;              /* bigger for touch */
-  }
-
+  /* Logo scales down */
   .logo {
-    max-width: 120px;             /* scale logo for small screens */
+    max-width: 120px;
     height: auto;
     margin-bottom: 5px;
   }
 
+  /* Navigation links stack vertically for easy tapping */
+  .main-nav {
+    margin-top: 8px;
+  }
+
+  .main-nav a {
+    display: block;               /* stack links */
+    margin: 4px 0;                /* spacing between links */
+    font-size: 16px;              /* touch-friendly size */
+  }
+
+  /* Contact info scales down and wraps naturally */
   .header-right p,
   .header-right a {
-    font-size: 14px;              /* smaller but readable */
+    font-size: 13px;
     line-height: 1.4;
+    word-break: break-word;       /* wrap long addresses/emails */
   }
 }
 
