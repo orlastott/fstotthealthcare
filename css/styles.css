@@ -49,7 +49,7 @@ body {
    HEADER
    ========================== */
 
-.site-header {
+/* .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,6 +62,48 @@ body {
   background-color: var(--card);
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+} */
+
+/* Desktop layout */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+  margin: auto;
+  padding: 2rem 1.5rem;
+
+  background-color: var(--card);
+  border-radius: 12px;
+}
+
+/* Make header elements stack vertically on mobile */
+@media screen and (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .main-nav {
+    margin-top: 10px;
+  }
+
+  .main-nav a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  .logo {
+    max-width: 150px;
+    height: auto;
+  }
 }
 
 .header-left {
