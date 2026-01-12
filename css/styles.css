@@ -96,16 +96,15 @@ body {
   }
   
   
-  /* Logo scales down */
   .logo {
-    max-width: 90px;
+    max-width: 100px;
     height: auto;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   
   .header-left h1 {
     font-size: 20px; 
-    line-height: 1.2;
+    /* line-height: 1.2; */
     margin: 0 0 6px 8px;
   }
 
@@ -138,7 +137,7 @@ body {
   .header-right p,
   .header-right a {
     font-size: 12px;
-    line-height: 1.4;
+    /* line-height: 1.4; */
     margin: 2px 0;
     word-break: break-word;
   }
