@@ -1,12 +1,19 @@
-:root {
+/* :root {
   --bg: #55a37b;
   --card: #ffffff;
   --text: #03301a;
   --muted: #859ca0;
   --accent: #1f8f58;
   --border: #d1d9d3;
+} */
+:root {
+  --bg: #55a37b;
+  --card: #ffffff;
+  --text: #094429;
+  --muted: #357d68;
+  --accent: #2d694c;
+  --border: #dbe5df;
 }
-
 /* ==========================
    GLOBAL RESET
    ========================== */
@@ -38,7 +45,6 @@ body {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-
 /* ==========================
    HEADER
    ========================== */
@@ -110,15 +116,29 @@ body {
   text-decoration: underline;
 }
 
+.main-nav a.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 /* ==========================
    MAIN CONTENT
    ========================== */
 
 main {
   flex: 1;
-  max-width: 1200px;
-  margin: auto;
-padding: 3rem 1.5rem 4rem;
+  padding: 3rem 0 2rem;
+}
+
+.section,
+.about,
+.contact {
+  width: 100%;
+  margin: 3rem 0;
+  padding: 3rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 /* ==========================
    SERVICE TILES
@@ -128,7 +148,7 @@ padding: 3rem 1.5rem 4rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .tile {
@@ -136,6 +156,7 @@ padding: 3rem 1.5rem 4rem;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 2rem;
+  min-height: 260px;
 
   display: flex;
   flex-direction: column;
@@ -156,7 +177,7 @@ padding: 3rem 1.5rem 4rem;
 
 .tile p {
   color: var(--muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .tile a {
@@ -173,17 +194,6 @@ padding: 3rem 1.5rem 4rem;
 /* ==========================
    ABOUT SECTION
    ========================== */
-
-.about {
-  max-width: 1200px;
-  margin: 4rem auto 0;
-  padding: 3rem 1.5rem;
-
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
 
 .about h2 {
   font-size: 1.8rem;
@@ -249,16 +259,7 @@ padding: 3rem 1.5rem 4rem;
    CONTACT SECTION
    ========================== */
 
-.contact {
-  max-width: 1200px;
-  margin: 4rem auto 0;
-  padding: 3rem 1.5rem;
 
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
 
 .contact h2 {
   text-align: center;
@@ -329,7 +330,7 @@ footer {
   padding: 2rem 1.5rem;
   font-size: 0.9rem;
   color: var(--muted);
-  margin-top: 4rem; 
+  margin-top: 0rem; 
 }
 /* ==========================
    FOOTER LINKS
