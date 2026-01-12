@@ -80,16 +80,16 @@ body {
 
 @media screen and (max-width: 480px) {
   .site-header {
-    flex-direction: column;       /* stack left and right sections */
+    flex-direction: column !important;  /* stack left & right */
     align-items: center;
     text-align: center;
-    padding: 5px 10px;            /* smaller padding for small screens */
+    padding: 5px 10px;
   }
 
   .header-left,
   .header-right {
-    width: 100%;
-    margin-bottom: 8px;           /* space between stacked sections */
+    width: 100% !important;            /* full width */
+    margin-bottom: 10px;
   }
 
   /* Logo scales down */
@@ -99,23 +99,19 @@ body {
     margin-bottom: 5px;
   }
 
-  /* Navigation links stack vertically for easy tapping */
-  .main-nav {
-    margin-top: 8px;
-  }
-
+  /* Stack navigation links */
   .main-nav a {
-    display: block;               /* stack links */
-    margin: 4px 0;                /* spacing between links */
-    font-size: 16px;              /* touch-friendly size */
+    display: block;
+    margin: 3px 0;
+    font-size: 16px;
   }
 
-  /* Contact info scales down and wraps naturally */
+  /* Shrink address & contact info */
   .header-right p,
   .header-right a {
-    font-size: 13px;
-    line-height: 1.4;
-    word-break: break-word;       /* wrap long addresses/emails */
+    font-size: 12px;
+    line-height: 1.3;
+    word-break: break-word;
   }
 }
 
