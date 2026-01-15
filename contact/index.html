@@ -8,6 +8,31 @@
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 
+<script>
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    if (response.ok) {
+      alert("Thank you! Your message has been sent successfully.");
+      form.reset();
+    } else {
+      alert("Sorry, there was a problem sending your message. Please try again.");
+    }
+  });
+</script>
+
 <body>
 
    <header class="site-header">
@@ -39,7 +64,7 @@
 <section class="contact">
   <h2>Contact Us</h2>
 
-  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+  <form  id="contact-form" action="https://formspree.io/f/mdaakdjk" method="POST" class="contact-form">
 
     <label>
       Name
@@ -55,6 +80,7 @@
       Message
       <textarea name="message" rows="5" required></textarea>
     </label>
+    <input type="hidden" name="_subject" value="New website enquiry">
 
     <button type="submit">Send Message</button>
 
